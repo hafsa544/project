@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+	  <title>Kids </title>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+<style>
+
+	h1{
+		text-align: center;
+		margin-bottom: 100px;
+		margin-top: 80px;
+        animation: fade 2.5s ease-in-out;
+
+	}
+body {
+	margin: 30px;
+	padding: 30px;
+	background-color: #F9EBE2;
+	font-family: calibri;
+     }
+
+a{
+	text-decoration: none;
+}
+
+.card-container {
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+	gap: 20px;
+    margin: 0 auto;
+	justify-content: space-evenly;
+}
+ 
+
+.box {
+	width: 300px;
+	box-shadow: 2px 2px 30px rgba(0,0,0,0.4);
+	border-radius: 10px;
+	overflow: hidden;
+    animation: fade 3s ease-in-out;
+     }
+
+.slide-img{
+	width: 300px;
+	height: 350px;
+	position: relative;
+	object-fit: cover;	
+}
+
+.slide-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+
+.detail-box{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	font-family: calibri;
+	object-fit: cover;
+}
+
+.type {
+	display: flex;
+	flex-direction: column;
+}
+
+.type a{
+	color: #222222;
+	margin: 5px 0px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	padding-right: 8px;
+}
+
+.type span{
+	color: rgba(26,26,26,0.5);
+}
+
+.price{
+	color: #333333;
+	font-weight:100%;
+	font-size: 1.1rem;
+	font-family: calibri;
+	letter-spacing: 0.5px;
+}
+
+.overlay {
+	position: absolute;
+	left: 50%;
+	top:50%;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(92,95,236,0.6);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.buy-button{
+	width: 150px;
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #FFFFFF;
+	color: #252525;
+	font-weight: 700;
+	letter-spacing: 1px;
+	font-family: calibri;
+	border-radius: 20px;
+	box-shadow: 2px 2px 30px rgba(0,0,0,0.4);
+}
+
+.buy-button:hover{
+	color: #FFFFFF;
+	background-color: #f15fa3;
+	transition: all 0.3s ease;
+}
+
+.overlay{
+	visibility: hidden;
+	position: absolute;
+	left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-img:hover  .overlay{
+	visibility: visible;
+	animation: fade 0.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+      /* header */
+	  * {
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        .top {
+            background-color: black;
+            margin-top: 0;
+            padding: 8px;
+            display: flex;
+            justify-content: space-evenly;
+            /* Space between header and links */
+            font-size: larger;
+            z-index: 22;
+        }
+
+        .head {
+            text-align: center;
+            font-family: 'Trebuchet MS';
+            letter-spacing: -4px;
+            font-size: 58px;
+            padding: 5px;
+            color: white;
+            /* Ensure the header text is white */
+        }
+
+        /*Bar icon styling */
+        .fa-solid {
+            height: 10px;
+            /* height and width is necessary to show the icon*/
+            width: 10px;
+            color: white;
+        }
+
+        .sidebarIconToggle {
+            /*This is an icon which has the property to show and hide side bar on which we have placed our bar icon */
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            z-index: 25;
+            top: 32px;
+            left: 15px;
+            cursor: pointer;
+        }
+
+        #openSidebarmenu {
+            /*We have the property of checkbox so in order to hide the input button */
+            display: none;
+        }
+
+        #sidebarMenu {
+            z-index: 20;
+            /* /to show any content on top of another page we/ */
+            height: 100%;
+            position: fixed;
+            /* /so the sidebar stays fixed/ */
+            left: 0;
+            /*To avoid any default space */
+            top: 0;
+            width: 250px;
+            margin-top: 60px;
+            /*space from the top */
+            background: black;
+            transform: translateX(-250px);
+            /* /it is a part of transform to move object horizontally/    */
+            transition: transform 0.8s ease-in-out;
+            /* /for a smoother in and out effect on sidebar/ */
+        }
+
+        #openSidebarmenu:checked~#sidebarMenu {
+            transform: translateX(0);
+            /* /we change the translateX to 0 to hide the sidebar/ */
+        }
+
+        .menu {
+            /* /this is basically ul i have given class to it/ */
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            /* /Remove bullet points/ */
+
+        }
+
+        .menu li {
+            /*it styles specific list items */
+            border-bottom: 1px solid transparent;
+            /* /to remove the default lines on list items/ */
+
+
+        }
+        .menu li:hover {
+    background-color:rgba(162, 162, 162, 0.219);
+    width: 100%; /* Change background color on hover */
+}
+
+        #sidebarMenu li a {
+            /* /it styles the main text on the list/ */
+            height: 30px;
+            width: 100%;
+            color: white;
+            display: block;
+            text-decoration: none;
+            padding: 20px;
+            font-size: 20px;
+            margin-top: 35px;
+            margin-bottom: 25px;
+            text-align: center;
+
+        }
+</style>
+</head>
+<body>
+	<!-- <header> -->
+		<div class="top">
+			<div class="head">VogueVibe</div>
+		</div>
+		<input type="checkbox" id="openSidebarmenu">
+		<label for="openSidebarmenu" class="sidebarIconToggle">
+			<i class="fa-solid fa-bars"></i>
+		</label>
+		<div id="sidebarMenu">
+			<ul class="menu">
+				<li><a href="index.html" >Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="men.html">Man</a></li>
+				<li><a href="women.html">Woman</a></li>
+				<li><a href="kids.html">Kids</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li><a href="registrationform.html" target="_blank">Registeration</a></li>
+			</ul>
+		</div>
+	<!-- </header> -->
+    <h1> Kids| Winter Collection| New Arrival </h1>
+    <div class="card-container">
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/474x/1c/2c/3b/1c2c3b60419d5656428bc3f2d439684b.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Turtleneck Sweatshirt</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$14</b></a>
+			</div>
+		</div>
+		
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/99/a2/3a/99a23a6cbffb6e31060e7298e45cf0e3.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Grey Padded Down Jacket</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$23</b></a>
+			</div>
+		</div>
+		
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/69/70/8d/69708d2fe18fd7b9d95efeaf4396e03e.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#"> Flap Pocket Jacket & Pants</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$28</b></a>
+			</div>
+		</div>
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/fd/f3/64/fdf364ff73aa8fb02fd6e5648ac6097f.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Striped Unisex Sweater</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$13</b></a>
+			</div>
+		</div>
+	</div>
+	
+	<br><br>
+	
+	<div class="card-container">
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/5b/cc/df/5bccdfc030690c222a84d589e0720aec.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Long Sleeve Plaid Shirt</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$8</b></a>
+			</div>
+			</div>
+			<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/b7/c3/d8/b7c3d89367e6c77253774f1600603f58.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Over-sized Sweatshirt</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$14</b></a>
+			</div>
+			</div>
+			<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/cb/ad/fa/cbadfa3994f821528363194643297b65.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Hooded Down Jacket</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$18</b></a>
+			</div>
+			</div>
+			<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/15/7a/4d/157a4d9b2d68cb5d3617af361f08f62a.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Plush Pastel Blue Sweater</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$19</b></a>
+			</div>
+			</div>
+		</div>
+		
+		<br><br>
+		
+		<div class="card-container">
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/a1/5d/f0/a15df08115f7e0b79097b3afcadda018.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Plush Beige Over-sized Jacket</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$10</b></a>
+			</div>
+			</div>
+			<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/4d/f1/bd/4df1bda0c425967f1d1785491f30e3d9.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Cotton Drop Shoulder Casual Jacket</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$9</b></a>
+			</div>
+			</div>
+			<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/0f/72/62/0f7262757c5bb2f8222a4d09d6192456.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Hooded Cotton Padded Coats</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$15</b></a>
+			</div>
+			</div>
+			<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/236x/82/bf/7c/82bf7c9ca8c9a1950576ed51eacb03be.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Long Sleeve Hooded Sweatshirt</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$11</b></a>
+			</div>
+			</div>
+		</div>
+		
+</body>
+</html>

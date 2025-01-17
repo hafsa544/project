@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: linear-gradient(#2b2828, #272525);
+            padding: 0 20px;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+            padding: 28px;
+            margin: 0 auto;
+            border-radius: 5px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 20px 30px rgb(22, 21, 21);
+        }
+
+        h1 {
+            font-size: 40px;
+            text-align: center;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 200;
+            padding-bottom: 50px;
+            border-bottom: 1px solid silver;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+
+        .input-box {
+            display: flex;
+            flex-wrap: wrap;
+            width: 48%;
+            margin-bottom: 20px;
+        }
+
+        .input-box label {
+            width: 100%;
+            color: #fff;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .input-box label .asterisk {
+            color: red;
+            font-size: 18px;
+            margin-left: 5px;
+        }
+
+        .input-box input {
+            height: 40px;
+            width: 100%;
+            padding: 0 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+
+        .input-box input:focus, .input-box input:valid {
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .gender-container {
+            width: 100%; 
+            margin-top: 20px;
+        }
+
+        .gender-title {
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .gender-category {
+            color: #fff;
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .gender-category input,
+        .gender-category label {
+            cursor: pointer;
+        }
+
+        .alert p {
+            font-size: 14px;
+            font-style: italic;
+            color: #fff;
+            margin: 5px 0;
+            padding: 10px;
+            line-height: 1.5;
+        }
+
+        .alert a {
+            font-weight: bold;
+            color: skyblue;
+        }
+
+        .alert a:hover {
+            text-decoration: underline;
+            color: black;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            font-size: 20px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            background-color: #0CBABA;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .button-container button:hover {
+            background-color: grey;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            .input-box {
+                width: 100%;
+            }
+
+            .gender-category {
+                flex-direction: row;
+                gap: 10px;
+            }
+
+            .alert {
+                font-size: 12px;
+            }
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <form action="#" method="get" onsubmit="return validateForm()">
+            <h1>Registration</h1>
+            <div class="content">
+                <div class="input-box">
+                    <label for="name">Full Name <span class="asterisk">*</span></label>
+                    <input type="text" id="name" placeholder="Enter here" name="name" required>
+                    <p class="error" id="name-error"></p>
+                </div>
+                <div class="input-box">
+                    <label for="username">Username <span class="asterisk">*</span></label>
+                    <input type="text" id="username" placeholder="Enter here" name="username" required>
+                    <p class="error" id="username-error"></p>
+                </div>
+                <div class="input-box">
+                    <label for="email">Email <span class="asterisk">*</span></label>
+                    <input type="email" id="email" placeholder="Enter email here" name="email" required>
+                    <p class="error" id="email-error"></p>
+                </div>
+                <div class="input-box">
+                    <label for="phone">Phone Number <span class="asterisk">*</span></label>
+                    <input type="tel" id="phone" placeholder="Enter here" name="phone" required>
+                    <p class="error" id="phone-error"></p>
+                </div>
+                <div class="input-box">
+                    <label for="password">Password <span class="asterisk">*</span></label>
+                    <input type="password" id="password" placeholder="Enter password" name="password" required>
+                    <p class="error" id="password-error"></p>
+                </div>
+                <div class="input-box">
+                    <label for="confirm_password">Confirm Password <span class="asterisk">*</span></label>
+                    <input type="password" id="confirm_password" placeholder="Confirm password" name="confirm_password" required>
+                    <p class="error" id="confirm-password-error"></p>
+                </div>
+                <div class="input-box">
+                    <label for="address">Address <span class="asterisk">*</span></label>
+                    <input type="text" id="address" placeholder="Enter your address" name="address" required>
+                    <p class="error" id="address-error"></p>
+                </div>
+                <div class="gender-container">
+                    <span class="gender-title">Gender</span>
+                    <div class="gender-category">
+                        <input type="radio" name="gender" id="male" required>
+                        <label for="male">Male</label>
+                        <input type="radio" name="gender" id="female">
+                        <label for="female">Female</label>
+                    </div>
+                    <p class="error" id="gender-error"></p>
+                </div>
+            </div>
+
+            <div class="alert">
+                <p>By signing up, you agree to our <a href="#">Terms</a>, <a href="#">Privacy Policy</a> and <a href="#">Cookies Policy</a>.</p>
+            </div>
+            <div class="button-container">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            let isValid = true;
+            document.querySelectorAll(".error").forEach(function(error) {
+                error.textContent = "";
+            });
+            const name = document.getElementById("name").value;
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm_password").value;
+            const address = document.getElementById("address").value;
+            const genderMale = document.getElementById("male").checked;
+            const genderFemale = document.getElementById("female").checked;
+
+            if (!name) {
+                document.getElementById("name-error").textContent = "Full Name is required.";
+                isValid = false;
+            }
+            if (!username) {
+                document.getElementById("username-error").textContent = "Username is required.";
+                isValid = false;
+            }
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email || !emailPattern.test(email)) {
+                document.getElementById("email-error").textContent = "Enter a valid email address.";
+                isValid = false;
+            }
+            const phonePattern = /^[0-9]{10}$/;
+            if (!phone || !phonePattern.test(phone)) {
+                document.getElementById("phone-error").textContent = "Enter a valid phone number (10 digits).";
+                isValid = false;
+            }
+            if (!password) {
+                document.getElementById("password-error").textContent = "Password is required.";
+                isValid = false;
+            }
+            if (password !== confirmPassword) {
+                document.getElementById("confirm-password-error").textContent = "Passwords do not match.";
+                isValid = false;
+            }
+            if (!address) {
+                document.getElementById("address-error").textContent = "Address is required.";
+                isValid = false;
+            }
+            if (!genderMale && !genderFemale) {
+                document.getElementById("gender-error").textContent = "Please select your gender.";
+                isValid = false;
+            }
+            if (isValid) {
+            alert("Your form is submitted!");
+        }
+        return isValid;
+    }
+</script>

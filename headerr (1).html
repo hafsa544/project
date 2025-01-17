@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* header */
+        * {
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        .top {
+            background-color: black;
+            margin-top: 0;
+            padding: 8px;
+            display: flex;
+            justify-content: space-evenly;
+            /* Space between header and links */
+            font-size: larger;
+            z-index: 22;
+        }
+
+        .head {
+            text-align: center;
+            font-family: 'Trebuchet MS';
+            letter-spacing: -4px;
+            font-size: 58px;
+            padding: 5px;
+            color: white;
+            /* Ensure the header text is white */
+        }
+
+        /*Bar icon styling */
+        .fa-solid {
+            height: 10px;
+            /* height and width is necessary to show the icon*/
+            width: 10px;
+            color: white;
+        }
+
+        .sidebarIconToggle {
+            /*This is an icon which has the property to show and hide side bar on which we have placed our bar icon */
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            z-index: 25;
+            top: 32px;
+            left: 15px;
+            cursor: pointer;
+        }
+
+        #openSidebarmenu {
+            /*We have the property of checkbox so in order to hide the input button */
+            display: none;
+        }
+
+        #sidebarMenu {
+            z-index: 20;
+            /* /to show any content on top of another page we/ */
+            height: 100%;
+            position: fixed;
+            /* /so the sidebar stays fixed/ */
+            left: 0;
+            /*To avoid any default space */
+            top: 0;
+            width: 250px;
+            margin-top: 60px;
+            /*space from the top */
+            background: black;
+            transform: translateX(-250px);
+            /* /it is a part of transform to move object horizontally/    */
+            transition: transform 0.8s ease-in-out;
+            /* /for a smoother in and out effect on sidebar/ */
+        }
+
+        #openSidebarmenu:checked~#sidebarMenu {
+            transform: translateX(0);
+            /* /we change the translateX to 0 to hide the sidebar/ */
+        }
+
+        .menu {
+            /* /this is basically ul i have given class to it/ */
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            /* /Remove bullet points/ */
+
+        }
+
+        .menu li {
+            /*it styles specific list items */
+            border-bottom: 1px solid transparent;
+            /* /to remove the default lines on list items/ */
+
+
+        }
+        .menu li:hover {
+    background-color:rgba(162, 162, 162, 0.219);
+    width: 100%; /* Change background color on hover */
+}
+
+        #sidebarMenu li a {
+            /* /it styles the main text on the list/ */
+            height: 30px;
+            width: 100%;
+            color: white;
+            display: block;
+            text-decoration: none;
+            padding: 20px;
+            font-size: 20px;
+            margin-top: 35px;
+            margin-bottom: 25px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <div class="head">VogueVibe</div>
+    </div>
+    <input type="checkbox" id="openSidebarmenu">
+    <label for="openSidebarmenu" class="sidebarIconToggle">
+        <i class="fa-solid fa-bars"></i>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="menu">
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="men.html">Man</a></li>
+            <li><a href="women.html">Woman</a></li>
+            <li><a href="kids.html">Kids</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="registrationform.html">Registeration</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

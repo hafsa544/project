@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>Vogue Vibe - About Us</title>
+    <style>
+        /* General Styling */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(37, 9, 9, 0.317);
+        }
+
+        /* Header */
+        .top {
+            background-color: black;
+            padding: 8px;
+            display: flex;
+            justify-content: center;
+            font-size: larger;
+            z-index: 22;
+            width: 100%;
+            position: fixed;
+            top: 0;
+        }
+
+        .head {
+            text-align: center;
+            font-family: 'Trebuchet MS', sans-serif;
+            letter-spacing: -4px;
+            font-size: 58px;
+            padding: 5px;
+            color: white;
+        }
+
+        /* Sidebar */
+        .sidebarIconToggle {
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            z-index: 25;
+            top: 16px;
+            left: 15px;
+            cursor: pointer;
+        }
+
+        .fa-solid {
+            color: white;
+        }
+
+        #openSidebarmenu {
+            display: none;
+        }
+
+        #sidebarMenu {
+            z-index: 20;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 250px;
+            margin-top: 100px;
+            background: black;
+            transform: translateX(-250px);
+            transition: transform 1s ease-in-out;
+           
+        }
+
+        #openSidebarmenu:checked~#sidebarMenu {
+            transform: translateX(0);
+        }
+
+        .menu {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .menu li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .menu li a {
+            color: white;
+            display: block;
+            text-decoration: none;
+            padding: 15px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .menu li:hover {
+            background-color: rgba(162, 162, 162, 0.2);
+        }
+
+        /* About Section */
+        .aboutus {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            font-size: 50px;
+            text-align: center;
+            margin-top: 80px;
+            animation: slide 2s ease-out;
+        }
+
+        @keyframes slide {
+            from {
+                width: 50%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .fade-in-box {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 500px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: larger;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .head {
+                font-size: 40px;
+            }
+
+            .menu li a {
+                font-size: 16px;
+            }
+
+            .fade-in-box {
+                width: 90%;
+                font-size: medium;
+            }
+            .aboutus{
+                margin-top: 73px;
+            }
+            #sidebarMenu {
+                z-index: 20;
+                height: 100%;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 150px;
+                margin-top: 150px;
+                background: black;
+                transform: translateX(-250px);
+                transition: transform 0.8s ease-in;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="top">
+        <div class="head">Vogue Vibe</div>
+    </div>
+
+    <!-- Sidebar -->
+    <input type="checkbox" id="openSidebarmenu">
+    <label for="openSidebarmenu" class="sidebarIconToggle">
+        <i class="fa-solid fa-bars"></i>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="menu">
+            <li><a href="voguevibe.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="men.html">Men</a></li>
+            <li><a href="women.html">Women</a></li>
+            <li><a href="kids.html">Kids</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="registrationform.html" target="_blank">Register</a></li>
+        </ul>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="aboutus">About Us</div>
+
+    <!-- Content -->
+    <div class="fade-in-box">
+        <h1>About Vogue Vibe</h1>
+        <p>
+            Vogue Vibe is a new clothing brand offering stylish and comfortable winter wear for men, women, and kids.
+            Our mission is to provide high-quality clothing that keeps you warm while enhancing your personal style.
+        </p>
+    </div>
+
+    <div class="fade-in-box">
+        <h1>Our Purpose and Passion</h1>
+        <p>
+            Vogue Vibe was born out of a passion for fashion and a desire to create a brand that makes people feel
+            confident and comfortable. Our team is committed to offering a diverse collection for every customer.
+        </p>
+    </div>
+
+    <div class="fade-in-box">
+        <h1>Our Achievements</h1>
+        <p>
+            Since launching, Vogue Vibe has curated a collection of winter apparel that has received positive feedback.
+            Our brand is recognized for offering fashionable, functional winter clothing for all.
+        </p>
+    </div>
+</body>
+
+</html>

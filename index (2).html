@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mainpage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <style>
+        /* header */
+        * {
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        .top {
+            background-color: black;
+            margin-top: 0;
+            padding: 8px;
+            display: flex;
+            justify-content: center;
+            /* Space between header and links */
+            font-size: larger;
+            z-index: 22;
+            
+        }
+
+        .head {
+            text-align: center;
+            font-family: 'Trebuchet MS';
+            letter-spacing: -4px;
+            font-size: 58px;
+            padding: 5px;
+            color: white;
+            /* Ensure the header text is white */
+        }
+
+        /*Bar icon styling */
+        .fa-solid {
+            height: 10px;
+            /* height and width is necessary to show the icon*/
+            width: 10px;
+            color: white;
+        }
+
+        .sidebarIconToggle {
+            /*This is an icon which has the property to show and hide side bar on which we have placed our bar icon */
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            z-index: 25;
+            top: 32px;
+            left: 15px;
+            cursor: pointer;
+        }
+
+        #openSidebarmenu {
+            /*We have the property of checkbox so in order to hide the input button */
+            display: none;
+        }
+
+        #sidebarMenu {
+            z-index: 20;
+            /* /to show any content on top of another page we/ */
+            height: 100%;
+            position: fixed;
+            /* /so the sidebar stays fixed/ */
+            left: 0;
+            /*To avoid any default space */
+            top: 0;
+            width: 250px;
+            margin-top: 60px;
+            /*space from the top */
+            background: black;
+            transform: translateX(-250px);
+            /* /it is a part of transform to move object horizontally/    */
+            transition: transform 0.8s ease-in-out;
+            /* /for a smoother in and out effect on sidebar/ */
+        }
+
+        #openSidebarmenu:checked~#sidebarMenu {
+            transform: translateX(0);
+            /* /we change the translateX to 0 to hide the sidebar/ */
+        }
+
+        .menu {
+            /* /this is basically ul i have given class to it/ */
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            /* /Remove bullet points/ */
+
+        }
+
+        .menu li {
+            /*it styles specific list items */
+            border-bottom: 1px solid transparent;
+            /* /to remove the default lines on list items/ */
+
+
+        }
+
+        .menu li:hover {
+            background-color: rgba(162, 162, 162, 0.219);
+            width: 100%;
+            /* Change background color on hover */
+        }
+
+        #sidebarMenu li a {
+            /* /it styles the main text on the list/ */
+            height: 30px;
+            width: 100%;
+            color: white;
+            display: block;
+            text-decoration: none;
+            padding: 20px;
+            font-size: 20px;
+            margin-top: 35px;
+            margin-bottom: 25px;
+            text-align: center;
+
+        }
+
+        .main {
+            height: 100%;
+            margin-top: 0px;
+        }
+
+        .card {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: top 8s ease-in-out;
+            margin-top: 10px;
+        }
+
+        .card1 {
+            background-color: white;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            top: 0;
+            left: 0;
+            z-index: 17;
+            transition: top 8s ease-in-out;
+
+        }
+
+        .card img {
+            overflow: hidden;
+            position: sticky;
+            left: 0;
+            top: 0;
+            width: 100%;
+            transition: top 8s ease-in-out;
+            padding: 5px;
+        }
+
+
+        .footer {
+            background-color: black;
+            height: 270px;
+            width: 100%;
+            z-index: 11;
+            top: 0;
+
+        }
+
+        .p1 {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .p2 {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .list {
+            list-style: none;
+            margin: 20px;
+            padding: 0;
+            position: absolute;
+
+        }
+
+        .list li {
+            color: white;
+            border-bottom: 1px solid transparent;
+
+        }
+
+        .list li a {
+            font-size: 14px;
+            font-family: sans-serif;
+            color: rgba(255, 255, 255, 0.972);
+            display: block;
+            text-decoration: none;
+            padding: 2px;
+
+        }
+
+        .list2 {
+            list-style: none;
+            float: right;
+            justify-content: space-around;
+            margin: 0;
+            padding: 6px;
+        }
+
+        .list2 li {
+            color: white;
+            border-bottom: 1px solid transparent;
+
+        }
+
+        .list2 li a {
+            float: right;
+            font-size: 14px;
+            font-family: sans-serif;
+            color: rgba(255, 255, 255, 0.972);
+            display: block;
+            text-decoration: none;
+            padding: 4px;
+
+        }
+
+        h2 {
+            color: white;
+            font-size: 60px;
+            letter-spacing: -4px;
+            text-align: center;
+            margin: 20px;
+            font-family: 'Trebuchet MS';
+
+        }
+
+         @media screen and (max-width:715px){
+            .head{
+              font-size: 20px;
+              letter-spacing: 2px;
+            }
+            #sidebarMenu {
+            padding: 20px;
+            width: 100px;
+            transform: translateX(-100px);
+            margin-top: 40px;
+            }
+            #sidebarMenu li a {
+               padding: 2px;
+              top: 30px;
+                font-size: 10px;
+            }
+            .card{
+                margin-top: 0.5px;  
+            }
+          .card img{
+            width: 100%;
+             padding: 0;
+          }
+          .sidebarIconToggle{
+            width: 5px;
+            height: 5px;
+            font-size: 10px;
+            top: 22px;
+            left: 25px;
+            cursor: pointer;
+          }
+          .p1 {
+            text-align: center;
+            font-size: 20px;
+            padding: 3px;
+          }
+          .p2{
+            font-size: 17px;
+          }
+          h2{
+            font-size: 20px;
+            letter-spacing: 1px;
+            padding-left: 30px;
+          }
+          .card1{
+            width: 100%;
+            position: relative;
+            transition: top 8s ease-in-out;
+          }
+          .footer{
+            height: 400px;
+            width: 100%;
+            position: relative;
+          }
+          .list li a{
+            font-size: 10px;
+          }
+          .list2 li a{
+            font-size: 10px;
+            padding: 3px;
+          }
+         }
+ 
+        @media screen and (min-width:1600px){ 
+            .head{
+              font-size: 80px;
+              letter-spacing: 2px;
+            }
+            #sidebarMenu {
+            padding: 60px;
+            width: 250px;
+            transform: translateX(-400px);
+            }
+            #sidebarMenu li a {
+                height: 50px;
+                width: 100px;
+               padding: 20px;
+               margin-top: 40px;
+                font-size: 25px;
+            }
+            .card{
+                margin-top: 0.5px;  
+            }
+          .card img{
+            width: 100%;
+             padding: 0;
+          }
+          .sidebarIconToggle{
+            width: 5px;
+            height: 5px;
+            font-size: 20px;
+            top: 30px;
+            left: 25px;
+            cursor: pointer;
+          }
+          .p1 {
+            text-align: center;
+            font-size: 50px;
+            padding: 3px;
+          }
+          .p2{
+            font-size: 30px;
+          }
+          .card1{
+            width: 100%;
+            position: relative;
+            transition: top 8s ease-in-out;
+          }
+          .footer{
+            height: 500px;
+            width: 100%;
+            position: relative;
+          }
+          .list li a{
+            font-size: 35px;
+          }
+          .list2 li a{
+            font-size: 35px;
+          }
+        } 
+    </style>
+</head>
+
+<body>
+
+    <div class="top">
+        <div class="head">VogueVibe</div>
+    </div>
+    <input type="checkbox" id="openSidebarmenu">
+    <label for="openSidebarmenu" class="sidebarIconToggle">
+        <i class="fa-solid fa-bars"></i>
+    </label>
+    <div id="sidebarMenu">
+        <ul class="menu">
+            <li><a href="vogue vibe.html">Home</a></li>
+            <li><a href="about.html" target="_blank">About</a></li>
+            <li><a href="men.html">Man</a></li>
+            <li><a href="women.html">Woman</a></li>
+            <li><a href="kids.html">Kids</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="registrationform.html" target="_blank">Registeration</a></li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <div class="card"><img src="mainpagepics/pic 1.webp" alt=""></div>
+        <div class="card"><img src="mainpagepics/pic 2.webp" alt=""></div>
+        <div class="card"><img src="mainpagepics/pic 3.webp" alt=""></div>
+        <div class="card1">
+            <span class="p1">Get The Latest Trends</span> <br><br> <span class="p2">
+                Facebook | Instsgram | Youtube | Tiktok | Pinterest
+            </span>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <ul class="list">
+            <li><a href="#">FAQ'S</a></li>
+            <li><a href="#">Login\Signup</a></li>
+            <li><a href="#">How to Buy</a></li>
+            <li><a href="#">Payment</a></li>
+            <li><a href="#">Shipping & Deliveries</a></li>
+            <li><a href="#">Exchanges & Return</a></li>
+
+        </ul>
+
+        <ul class="list2">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Retail Stores</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Work With Us</a></li>
+
+        </ul>
+        <h2>VogueVibe</h2>
+    </div>
+
+
+</body>
+
+</html>

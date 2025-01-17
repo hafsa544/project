@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Man page </title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+	<style>
+		/* header */
+		
+		h1 {
+			text-align: center;
+			margin-bottom: 100px;
+			margin-top: 80px;
+			animation: fade 2.5s ease-in-out;
+
+		}
+
+		body {
+			margin: 30px;
+			padding: 30px;
+			background-color: #F9EBE2;
+			font-family: calibri;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		.card-container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 20px;
+			margin: 0 auto;
+			justify-content: space-evenly;
+		}
+
+
+		.box {
+			width: 300px;
+			box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.4);
+			border-radius: 10px;
+			overflow: hidden;
+			animation: fade 3s ease-in-out;
+		}
+
+		.slide-img {
+			width: 300px;
+			height: 350px;
+			position: relative;
+			object-fit: cover;
+		}
+
+		.slide-img img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.detail-box {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px 20px;
+			box-sizing: border-box;
+			font-family: calibri;
+			object-fit: cover;
+		}
+
+		.type {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.type a {
+			color: #222222;
+			margin: 5px 0px;
+			font-weight: 700;
+			letter-spacing: 0.5px;
+			padding-right: 8px;
+		}
+
+		.type span {
+			color: rgba(26, 26, 26, 0.5);
+		}
+
+		.price {
+			color: #333333;
+			font-weight: 100%;
+			font-size: 1.1rem;
+			font-family: calibri;
+			letter-spacing: 0.5px;
+		}
+
+		.overlay {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(92, 95, 236, 0.6);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+		}
+
+		.buy-button {
+			width: 150px;
+			height: 35px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			background-color: #FFFFFF;
+			color: #252525;
+			font-weight: 700;
+			letter-spacing: 1px;
+			font-family: calibri;
+			border-radius: 20px;
+			box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.4);
+		}
+
+		.buy-button:hover {
+			color: #FFFFFF;
+			background-color: #f15fa3;
+			transition: all 0.3s ease;
+		}
+
+		.overlay {
+			visibility: hidden;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.slide-img:hover .overlay {
+			visibility: visible;
+			animation: fade 0.5s;
+		}
+
+		@keyframes fade {
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		/* men */
+		/* header */
+		* {
+			box-sizing: border-box;
+
+		}
+
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			padding: 0;
+			margin: 0;
+		}
+
+		.top {
+			background-color: black;
+			margin-top: 0;
+			padding: 8px;
+			display: flex;
+			justify-content: space-evenly;
+			/* Space between header and links */
+			font-size: larger;
+			z-index: 22;
+		}
+
+		.head {
+			text-align: center;
+			font-family: 'Trebuchet MS';
+			letter-spacing: -4px;
+			font-size: 58px;
+			padding: 5px;
+			color: white;
+			/* Ensure the header text is white */
+		}
+
+		/*Bar icon styling */
+		.fa-solid {
+			height: 10px;
+			/* height and width is necessary to show the icon*/
+			width: 10px;
+			color: white;
+		}
+
+		.sidebarIconToggle {
+			/*This is an icon which has the property to show and hide side bar on which we have placed our bar icon */
+			width: 22px;
+			height: 22px;
+			position: absolute;
+			z-index: 25;
+			top: 32px;
+			left: 15px;
+			cursor: pointer;
+		}
+
+		#openSidebarmenu {
+			/*We have the property of checkbox so in order to hide the input button */
+			display: none;
+		}
+
+		#sidebarMenu {
+			z-index: 20;
+			/* /to show any content on top of another page we/ */
+			height: 100%;
+			position: fixed;
+			/* /so the sidebar stays fixed/ */
+			left: 0;
+			/*To avoid any default space */
+			top: 0;
+			width: 250px;
+			margin-top: 60px;
+			/*space from the top */
+			background: black;
+			transform: translateX(-250px);
+			/* /it is a part of transform to move object horizontally/    */
+			transition: transform 0.8s ease-in-out;
+			/* /for a smoother in and out effect on sidebar/ */
+		}
+
+		#openSidebarmenu:checked~#sidebarMenu {
+			transform: translateX(0);
+			/* /we change the translateX to 0 to hide the sidebar/ */
+		}
+
+		.menu {
+			/* /this is basically ul i have given class to it/ */
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			/* /Remove bullet points/ */
+
+		}
+
+		.menu li {
+			/*it styles specific list items */
+			border-bottom: 1px solid transparent;
+			/* /to remove the default lines on list items/ */
+
+
+		}
+
+		.menu li:hover {
+			background-color: rgba(162, 162, 162, 0.219);
+			/* Change background color on hover */
+		}
+
+		#sidebarMenu li a {
+			/* /it styles the main text on the list/ */
+			height: 30px;
+			width: 100%;
+			color: white;
+			display: block;
+			text-decoration: none;
+			padding: 20px;
+			font-size: 20px;
+			margin-top: 35px;
+			margin-bottom: 25px;
+			text-align: center;
+
+
+		}
+	</style>
+</head>
+
+<body>
+	<div class="top">
+		<div class="head">VogueVibe</div>
+	</div>
+	<input type="checkbox" id="openSidebarmenu">
+	<label for="openSidebarmenu" class="sidebarIconToggle">
+		<i class="fa-solid fa-bars"></i>
+	</label>
+	<div id="sidebarMenu">
+		<ul class="menu">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="about.html">About</a></li>
+			<li><a href="men.html">Man</a></li>
+			<li><a href="women.html">Woman</a></li>
+			<li><a href="kids.html">Kids</a></li>
+			<li><a href="contact.html">Contact</a></li>
+			<li><a href="registrationform.html" target="_blank">Registeration</a></li>
+		</ul>
+	</div>
+	<h1> Men| Winter Collection| New Arrival </h1>
+	<div class="card-container">
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/2d/c1/13/2dc1131b8db253117745d58cc10fcaa8.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Knitted Sweater Vest</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$21</b></a>
+			</div>
+		</div>
+
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/20/36/be/2036be13d4a75002ef2a3a46c9759eda.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">V-Neck Knitted Sweater Vest</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$23</b></a>
+			</div>
+		</div>
+
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/d9/2a/3b/d92a3b4f03f3a558823041b0ed20e86a.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Turtleneck Slim Sweater</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$18</b></a>
+			</div>
+		</div>
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/23/d8/e1/23d8e1b44b213bbe97f08625658511cb.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Long Sleeve Suit Shirt</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$13</b></a>
+			</div>
+		</div>
+	</div>
+
+	<br><br>
+
+	<div class="card-container">
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/45/16/f6/4516f68116d26bf1296aa8490c9f7549.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Cardigan Sweater</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$22</b></a>
+			</div>
+		</div>
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/3b/05/52/3b055268f0de83ffc097110525942fd2.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Long Sleeve Retro Jacket</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$31</b></a>
+			</div>
+		</div>
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/f9/ab/4a/f9ab4af9b520257e22632ddac3031b30.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Knitted Striped Pullover Sweater</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$28</b></a>
+			</div>
+		</div>
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/8a/6d/49/8a6d49387c626c74ba1403106d2411ab.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Low Gauge Half Zip Sweater</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$23</b></a>
+			</div>
+		</div>
+	</div>
+
+	<br><br>
+
+	<div class="card-container">
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/8c/23/73/8c23735a10f81e93e97f3c322c6adeb5.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Brown Compact Sweatshirt</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$20</b></a>
+			</div>
+		</div>
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/bd/be/14/bdbe14eb92418a063bbaba451495ab0b.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Striped Knitted Sweater</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$24</b></a>
+			</div>
+		</div>
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/3f/ea/eb/3feaebf710c9b38c0bffc1d7321b3cf5.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Stick V-Neck Button Cardigan</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$25</b></a>
+			</div>
+		</div>
+		<div class="box">
+			<div class="slide-img">
+				<img src="https://i.pinimg.com/736x/7f/15/cd/7f15cde6adfdac88db7ee0820eb16c56.jpg">
+				<div class="overlay">
+					<a href="#" class="buy-button">Add To Cart</a>
+				</div>
+			</div>
+			<div class="detail-box">
+				<div class="type">
+					<a href="#">Pullover Twist Sweater</a>
+					<span>New Arrival</span>
+				</div>
+				<a href="#" class="price"><b>$29</b></a>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
